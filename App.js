@@ -1,13 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, TouchableOpacity, View, TextInput } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <TextButton placeholderText='Entrez votre texte' />
     </View>
   );
+}
+
+const TextButton = (props) => {
+  const { placeholderText } = props;
+  return (
+    <View>
+      <TextInput style={styles.textInput} placeholder={placeholderText}></TextInput>
+      <TouchableOpacity style={styles.button}></TouchableOpacity>
+    </View> 
+  )
 }
 
 const styles = StyleSheet.create({
@@ -17,4 +26,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textInput: {
+    flexDirection: 'column',
+    height: 40,
+    width: 200,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  button: {
+    height: 50,
+    width: 100,
+    backgroundColor: 'red',
+    borderRadius: 20,
+    alignSelf: 'center'
+  }
 });
